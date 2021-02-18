@@ -11,13 +11,11 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.user.username
+         
 
 class Sector(models.Model):
     name  = models.CharField(max_length=100, unique=True)
-    count = models.PositiveIntegerField(default=0)
-    mean = models.PositiveIntegerField(default=0)
-    min = models.PositiveIntegerField(default=0)
-    max = models.PositiveIntegerField(default=0)
+    price = models.PositiveIntegerField(default=0)
     
 
     def __str__(self):
@@ -27,7 +25,6 @@ class Sector(models.Model):
 
 class District(models.Model):
     name  = models.CharField(max_length=100, unique=True)
-    sector = models.ForeignKey(Sector, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
@@ -38,9 +35,9 @@ class District(models.Model):
 class House( models.Model):
 
     BRICKS = (
-        ('type1','type1'),
-        ('type2','type2'),
-        ('type3','type3'),
+        ('mud','mud'),
+        ('cement','cement'),
+        ('brown','brown'),
     )
 
     ACTION = (
@@ -52,8 +49,9 @@ class House( models.Model):
     description    = models.TextField(blank=True, null=True,)
     image      = models.ImageField(upload_to='contents',null=True)
     district    = models.ForeignKey(District, on_delete=models.CASCADE)
+    sector    = models.ForeignKey(Sector, on_delete=models.CASCADE)
     published_date = models.DateField(auto_now_add=True)
-    brick_type = models.CharField(max_length=10, choices=BRICKS, default='type1')
+    brick_type = models.CharField(max_length=10, choices=BRICKS, default='mud')
     house_size = models.PositiveIntegerField(default=0)
     plot_size = models.PositiveIntegerField(default=0)
     action = models.CharField(max_length=10, choices=ACTION, default='renting')
