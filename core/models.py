@@ -14,10 +14,7 @@ class Profile(models.Model):
 
 class Sector(models.Model):
     name  = models.CharField(max_length=100, unique=True)
-    count = models.PositiveIntegerField(default=0)
-    mean = models.PositiveIntegerField(default=0)
-    min = models.PositiveIntegerField(default=0)
-    max = models.PositiveIntegerField(default=0)
+    price = models.PositiveIntegerField(default=0)
     
 
     def __str__(self):
@@ -38,9 +35,9 @@ class District(models.Model):
 class House( models.Model):
 
     BRICKS = (
-        ('type1','type1'),
-        ('type2','type2'),
-        ('type3','type3'),
+        ('mood','mood'),
+        ('cement','cement'),
+        ('brown','brown'),
     )
 
     ACTION = (
