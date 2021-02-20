@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.79.0">
+  <title>Blog</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/blog/">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+  
+
+  <style>
+
+
+    input[type='text'] {
+      width: 85%;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      border: none;
+      border-bottom: 3px solid #ff0728;
+      overflow: auto;
+      position: relative;
+    }
+
+    input[type='text']:active:focus,
+    input[type='text']:focus,
+    input[type='text']:hover {
+      outline: none;
+      font-size: 20px;
+    }
+
+
+
+    input[type='text']:focus::-webkit-input-placeholder,
+    input[type='text']:active:focus::-webkit-input-placeholder {
+      font-size: 12px;
+      display: block;
+      -webkit-transform: translateY(-20px);
+      transform: translateY(-20px);
+    }
+
+    ::-webkit-placeholder {
+      font-size: 14px;
+      color: #b7b7b7;
+      text-transform: capitalize;
+      -webkit-transform: translateY(0px);
+      transform: translateY(0px);
+      -webkit-transition: all .3s ease-in-out;
+      transition: all .3s ease-in-out;
+    }
+
+    ::placeholder {
+      font-size: 14px;
+      color: #b7b7b7;
+      text-transform: capitalize;
+      -webkit-transform: translateY(0px);
+      transform: translateY(0px);
+      -webkit-transition: all .3s ease-in-out;
+      transition: all .3s ease-in-out;
+    }
+
+    .button {
+      width: 85%;
+      background: #ff073d;
+      padding: 7px;
+      border: none;
+      border-radius: 5px;
+      font-size: 14px;
+      color: #fff;
+      text-transform: capitalize;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    .button:active:focus,
+    .button:focus,
+    .button:hover {
+      outline: none;
+    }
+
+    .button:hover {
+      cursor: pointer;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    .nav-scroller {
+      background: black;
+      padding: 20px;
+    }
+    .fas{
+      background-color: #ff0728;
+      color: white;
+    }
+  </style>
+
+  <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+
+  <div class="nav-scroller py-1 mb-2">
+    <nav class="nav d-flex justify-content-between">
+      <a class="p-2 link-secondary" href="#">Home</a>
+      
+    </nav>
+  </div>
+
+
+  <main class="container">
+
+    {% block content %}
+
+    {% endblock %}
+
+  </main>
+
+
+
+</body>
+
+<!-- Footer -->
+<footer class="bg-dark text-light mt-5 text-center text-lg-start">
+  <!-- Grid container -->
+  <div class="container p-4">
+    <!--Grid row-->
+    <div class="row">
+      <!--Grid column-->
+      <div class="col-lg-4 mb-4 mb-md-0">
+        <h5 class="text-uppercase">Blog</h5>
+
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
+          molestias. Fugiat pariatur maxime quis culpa corporis
+        </p>
+   
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-lg-4  justify-content-center text-center  mb-4 mb-md-0">
+        <h5 class="text-uppercase ">Info</h5>
+     
+          <ul class="list-unstyled  mb-0">
+            <li>
+              <a href="#!" class="text-light">Home</a>
+            </li>
+            <li>
+              <a href="#!" class="text-light">Scholarships</a>
+            </li>
+            <li>
+              <a href="#!" class="text-light">Trainings</a>
+            </li>
+            <li>
+              <a href="#!" class="text-light">Fellowships</a>
+            </li>
+            <li>
+              <a href="#!" class="text-light">Jobs</a>
+            </li>
+            <li>
+              <a href="#!" class="text-light">Interneships</a>
+            </li>
+            <li>
+              <a href="#!" class="text-light">Contact</a>
+            </li>
+            <li>
+              <a href="#!" class="text-light">News</a>
+            </li>
+          </ul>
+     
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-lg-4  mb-4 mb-md-0">
+        <h2 class="heading">
+          please subscribe to get updates
+        </h2>
+        <p> signup with your email to get latest updates
+        </p>
+        <form>
+          <input type='text' class="bg-dark text-light" placeholder="Enter your email"><br />
+          <button class="btn button" role="button">
+            subscribe
+          </button>
+        </form>
+      </div>
+    </div>
+    <!--Grid column-->
+  </div>
+  <!--Grid row-->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+    © 2021 Copyright:
+    <a class="text-light" href="">Blog</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+</html>
