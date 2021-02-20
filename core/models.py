@@ -55,3 +55,9 @@ class House( models.Model):
     house_size = models.PositiveIntegerField(default=0)
     plot_size = models.PositiveIntegerField(default=0)
     action = models.CharField(max_length=10, choices=ACTION, default='renting')
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        ordering = ["-pk"]
