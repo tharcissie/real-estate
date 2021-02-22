@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'core',
+    'listings'
 ]
 
 MIDDLEWARE = [
@@ -86,8 +87,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'real',
-        'USER': 'tharcissie',
-    'PASSWORD':'ntakarakorwa123',
+        'USER': 'ange',
+    'PASSWORD':'ange1997',
     }
 }
 
