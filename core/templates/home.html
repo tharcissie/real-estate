@@ -1,35 +1,35 @@
 {% extends 'base.html' %}
 
-
+{% load crispy_forms_tags %}
 
 {% block content %}
 <style>
-.ads-1{
-  background:red;
-  padding:40px;
-}
-.ads{
-  background:black;
-  height:295px;
-}
 .section-title{
-    background: red;
+    background: rgb(221, 70, 70);
     width: fit-content;
     padding: 10px;
     margin-bottom: -18px;
     font-size: 15px;
 }
-.ads-2{
-  height:192px;
-  background:red;
-  margin-top:12px;
-}
-.ads-3{
-  margin-top:10px;
-}
 </style>
 
+<div class="container mt-5 mb-5">
+  <form method="get">
+      {% csrf_token %}
 
+      <div class="row">
+          <div class="form-group col-md-4 mb-0">
+              {{ filter.form.district|as_crispy_field }}
+          </div>
+          <div class="form-group col-md-4 mb-0">
+              {{ filter.form.sector|as_crispy_field }}
+          </div>
+          <div class="form-group col-md-1 mb-0">
+              <button type="submit" class="btn btn-warning mt-4 ">Search</button>
+          </div>
+      </div>
+  </form>
+</div>
 
 <h4 class="section-title">Houses</h4>
 <hr>
@@ -37,7 +37,7 @@
     <div class="col-md-9">
       <div class="row">
         {% if houses %}
-        {% for pro in houses %}
+        {% for pro in filter.qs %}
         <div class="col-md-6">
           <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
             <div class="col ps-4 pe-2 pt-4 d-flex flex-column position-static">
