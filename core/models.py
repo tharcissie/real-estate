@@ -22,23 +22,18 @@ class Sector(models.Model):
         return self.name
 
 
-
 class District(models.Model):
     name  = models.CharField(max_length=100, unique=True)
 
     def __str__(self):
         return self.name
 
-
+class Brick(models.Model):
+    brick_type = models.CharField(max_length=100, unique=True)
+    price = models.PositiveIntegerField(default=0)
 
 
 class House( models.Model):
-
-    BRICKS = (
-        ('mud','mud'),
-        ('cement','cement'),
-        ('brown','brown'),
-    )
 
     ACTION = (
         ('renting','renting'),
@@ -51,9 +46,11 @@ class House( models.Model):
     district    = models.ForeignKey(District, on_delete=models.CASCADE)
     sector    = models.ForeignKey(Sector, on_delete=models.CASCADE)
     published_date = models.DateField(auto_now_add=True)
-    brick_type = models.CharField(max_length=10, choices=BRICKS, default='mud')
+    brick = models.ForeignKey(Brick, on_delete=models.CASCADE)
     house_size = models.PositiveIntegerField(default=0)
     plot_size = models.PositiveIntegerField(default=0)
+    cement_price = models.PositiveIntegerField(default=9000)
+    roof_price = models.PositiveIntegerField(default=10000)
     action = models.CharField(max_length=10, choices=ACTION, default='renting')
 
     def __str__(self):
