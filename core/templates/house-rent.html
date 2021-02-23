@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<style>
+    .card-img-top {
+      height: 30vh;
+    }
+  </style>
+<div class="container mt-5">
+    <h4 class="section-title">Houses</h4>
+    <hr>
+    <div class="row mb-2">
+      <div class="col-md-9">
+        <div class="row justify-content-center">
+          {% if houses %}
+          {% for pro in houses %}
+          <div class="card mr-2" style="width: 20rem;">
+            <img class="card-img-top" src="{{pro.image.url}}" alt="Card image cap">
+  
+            <div class="card-body">
+              <h5>{{pro.price}}Rwf</h5>
+              <p class="card-text">Location:{{pro.district}},{{pro.sector}}, Type:{{pro.type}}, Rooms:{{pro.beds}},
+                Baths:{{pro.baths}}</p>
+                <a href="">For {{pro.action}}</a>
+            </div>
+          </div>
+          {% endfor %}
+          {% else %}
+          <p>No houses</p>
+          {% endif %}
+  
+  
+        </div>
+      </div>
+  
+    </div>
+</div>
+{% endblock %}
