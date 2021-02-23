@@ -3,55 +3,74 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div class="jumbotron" style="background-image: url('https://content.fortune.com/wp-content/uploads/2019/06/lan07.19-landlord-houses-featured.jpg'); background-repeat: no-repeat; background-size: cover">
-  <h1 class="display-4">Hello, world!</h1>
-  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+<style>
+  .jumbotron {
+    color: rgb(245, 246, 248);
+  }
+
+  .card-img-top {
+    height: 30vh;
+  }
+</style>
+<div class="jumbotron text-center"
+  style="background-image: url('https://content.fortune.com/wp-content/uploads/2019/06/lan07.19-landlord-houses-featured.jpg'); background-repeat: no-repeat; background-size: cover">
+  <h1 class="display-4 ">Welcome to Buy/Rent/Sell - Care </h1>
+  <p class="lead text-light" style="text-shadow: 1px 1px rgb(48, 47, 47);"> <b> Whether you’re buying, selling or
+      renting, we can help you move forward.</b></p>
   <hr class="my-4">
-  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+  <p class="text-light" style="text-shadow: 1px 1px rgb(54, 54, 54);"> <b> Choose your desire </b> </p>
   <p class="lead">
-    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    <a class="btn btn-primary btn-sm" href="{% url 'house_sell' %}" role="button">Buy</a>
+    <a class="btn btn-primary btn-sm" href="{% url 'house_rent' %}" role="button">Rent</a>
+    <a class="btn btn-primary btn-sm" href="{% url 'sell' %}" role="button">Sell</a>
   </p>
 </div>
 
-<div class="container mt-5 mb-5">
+<div class="container mx-auto mt-5 mb-5">
   <form method="get">
-      {% csrf_token %}
+    {% csrf_token %}
 
-      <div class="row">
-          <div class="form-group col-md-4 mb-0">
-              {{ filter.form.district|as_crispy_field }}
-          </div>
-          <div class="form-group col-md-4 mb-0">
-              {{ filter.form.sector|as_crispy_field }}
-          </div>
-          <div class="form-group col-md-1 mb-0">
-              <button type="submit" class="btn btn-warning mt-4 ">Search</button>
-          </div>
+    <div class="row justify-content-center">
+      <div class="form-group col-md-1 mb-0">
+        {{ filter.form.district|as_crispy_field }}
       </div>
+      <div class="form-group col-md-1 mb-0">
+        {{ filter.form.sector|as_crispy_field }}
+      </div>
+      <div class="form-group col-md-1 mb-0">
+        {{ filter.form.action|as_crispy_field }}
+      </div>
+      <div class="form-group col-md-1 mb-0">
+        {{ filter.form.type|as_crispy_field }}
+      </div>
+      <div class="form-group col-md-1 mb-0">
+        {{ filter.form.beds|as_crispy_field }}
+      </div>
+      <div class="form-group col-md-1 mb-0">
+        {{ filter.form.baths|as_crispy_field }}
+      </div>
+      <div class="form-group col-md-1 mb-0">
+        <button type="submit" class="btn  btn-warning mt-4 ">Search</button>
+      </div>
+    </div>
   </form>
 </div>
 <div class="container">
-<h4 class="section-title">Houses</h4>
-<hr>
-<div class="row mb-2">
+  <h4 class="section-title">Houses</h4>
+  <hr>
+  <div class="row mb-2">
     <div class="col-md-9">
-      <div class="row">
+      <div class="row justify-content-center">
         {% if houses %}
         {% for pro in filter.qs %}
-        <div class="col-md-6">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-            <div class="col ps-4 pe-2 pt-4 d-flex flex-column position-static">
-              <p class="card-text mb-auto">{{pro.name}}</p>
-              <p>{{pro.action}}</p>
-            </div>
-            <div class="col-auto d-none d-lg-block">
-                <img class="bd-placeholder-img" width="150" height="180" xmlns="http://www.w3.org/2000/svg"
-                    role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"
-                    focusable="false" src="{{pro.image.url}}">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                    dy=".3em">
-            </div>
+        <div class="card mr-2" style="width: 20rem;">
+          <img class="card-img-top" src="{{pro.image.url}}" alt="Card image cap">
+
+          <div class="card-body">
+            <h5>{{pro.price}}Rwf</h5>
+            <p class="card-text">Location:{{pro.district}},{{pro.sector}}, Type:{{pro.type}}, Rooms:{{pro.beds}},
+              Baths:{{pro.baths}}</p>
+              <a href="">For {{pro.action}}</a>
           </div>
         </div>
         {% endfor %}
@@ -63,15 +82,7 @@
       </div>
     </div>
 
-</div>
+  </div>
 
 </div>
 {% endblock %}
-
-
-
-
-
-
-
-  

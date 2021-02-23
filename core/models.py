@@ -25,7 +25,7 @@ class House( models.Model):
         ('apartment','apartment'),
     )
 
-    house_type    = models.CharField(max_length=800,choices=TYPE, default='house')
+    type    = models.CharField(max_length=800,choices=TYPE, default='house')
     description    = models.TextField(blank=True, null=True,)
     image      = models.ImageField(upload_to='contents',null=True)
     image1      = models.ImageField(upload_to='contents',null=True)
@@ -35,18 +35,19 @@ class House( models.Model):
     district    = models.CharField(max_length=800)
     sector    = models.CharField(max_length=800)
     published_date = models.DateField(auto_now_add=True)
-    bed_rooms = models.PositiveIntegerField(default=0)
-    bath_rooms = models.PositiveIntegerField(default=0)
+    beds = models.PositiveIntegerField(default=0)
+    baths = models.PositiveIntegerField(default=0)
     price = models.PositiveIntegerField(default=0)
     action = models.CharField(max_length=10, choices=ACTION, default='renting')
+    owner = models.ForeignKey(Profile,on_delete=models.CASCADE, related_name='houses')
 
     def __str__(self):
-        return self.house_type
+        return self.type
 
     class Meta:
         ordering = ["-pk"]
 
     @classmethod
     def search_house(cls,search):
-    	house = cls.objects.filter(house_type__icontains=search)
+    	house = cls.objects.filter(type__icontains=search)
     	return house

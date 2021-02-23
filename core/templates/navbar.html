@@ -1,9 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="/">Houses</a>
-      <a class="mr-5" href="/">rent</a>
-      <a class="mr-5" href="/">buy</a>
-      <a class="" href="/">sell</a>
+      <a class="navbar-brand" href="/">BRS-Care</a>
+      <a class="mr-5" href="{% url 'house_rent' %}">rent</a>
+      <a class="mr-5" href="{% url 'house_sell' %}">buy</a>
+      <a class="" href="{% url 'sell' %}">sell</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
