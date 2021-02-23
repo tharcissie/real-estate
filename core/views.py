@@ -57,3 +57,14 @@ def house_sell(request):
     }
     return render(request, 'house_sell.html',context)
 
+def search_house(request):
+    if 'house' in request.GET and request.GET["house"]:
+        search = request.GET.get("house")
+        house = House.search_house(search)
+        message = f"{search}"
+        context = {"house":house, 'search':search}
+        return render(request, 'result.html',context)
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'result.html',{"message":message})
+

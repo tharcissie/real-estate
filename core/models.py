@@ -13,26 +13,6 @@ class Profile(models.Model):
         return self.user.username
          
 
-class Sector(models.Model):
-    name  = models.CharField(max_length=100, unique=True)
-    price = models.PositiveIntegerField(default=0)
-    
-
-    def __str__(self):
-        return self.name
-
-
-class District(models.Model):
-    name  = models.CharField(max_length=100, unique=True)
-
-    def __str__(self):
-        return self.name
-
-class Brick(models.Model):
-    brick_type = models.CharField(max_length=100, unique=True)
-    price = models.PositiveIntegerField(default=0)
-
-
 class House( models.Model):
 
     ACTION = (
@@ -40,21 +20,33 @@ class House( models.Model):
         ('selling','selling'),
     )
 
-    name    = models.CharField(max_length=800)
+    TYPE = (
+        ('house','house'),
+        ('apartment','apartment'),
+    )
+
+    house_type    = models.CharField(max_length=800,choices=TYPE, default='house')
     description    = models.TextField(blank=True, null=True,)
     image      = models.ImageField(upload_to='contents',null=True)
-    district    = models.ForeignKey(District, on_delete=models.CASCADE)
-    sector    = models.ForeignKey(Sector, on_delete=models.CASCADE)
+    image1      = models.ImageField(upload_to='contents',null=True)
+    image2     = models.ImageField(upload_to='contents',null=True)
+    image3     = models.ImageField(upload_to='contents',null=True)
+    image4     = models.ImageField(upload_to='contents',null=True)
+    district    = models.CharField(max_length=800)
+    sector    = models.CharField(max_length=800)
     published_date = models.DateField(auto_now_add=True)
-    brick = models.ForeignKey(Brick, on_delete=models.CASCADE)
-    house_size = models.PositiveIntegerField(default=0)
-    plot_size = models.PositiveIntegerField(default=0)
-    cement_price = models.PositiveIntegerField(default=9000)
-    roof_price = models.PositiveIntegerField(default=10000)
+    bed_rooms = models.PositiveIntegerField(default=0)
+    bath_rooms = models.PositiveIntegerField(default=0)
+    price = models.PositiveIntegerField(default=0)
     action = models.CharField(max_length=10, choices=ACTION, default='renting')
 
     def __str__(self):
-        return self.name
+        return self.house_type
 
     class Meta:
         ordering = ["-pk"]
+
+    @classmethod
+    def search_house(cls,search):
+    	house = cls.objects.filter(house_type__icontains=search)
+    	return house
