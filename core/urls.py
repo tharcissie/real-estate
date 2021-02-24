@@ -8,4 +8,5 @@ urlpatterns = [
    path('sell_house/', new_house, name='sell'),
    path('houses_for_renting/', house_rent, name='house_rent'),
    path('houses_for_selling/', house_sell, name='house_sell'),
+   path('profile/<username>/', profile, name='profile'),
 ]
