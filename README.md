@@ -9,7 +9,7 @@ Description
 Project instruction
 to start using this app you can first clone it on github and user visual code for writing codes
 
-Technology used
+Technology 
 Python3.6
 Django
 terminal
