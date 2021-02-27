@@ -29,34 +29,34 @@ def listing(request, listing_id):
 
     return render(request, 'listings/listing.html', context)
 
-@login_required(login_url='/accounts/login/')
-def search(request):
-    queryset_list=Listing.objects.order_by('-list_data')
+# @login_required(login_url='/accounts/login/')
+# def search(request):
+#     queryset_list=Listing.objects.order_by('-list_data')
 
-    #keywords
-    if 'keywords' in request.GET:
-        keywords = request.GET['keywords']
-        if keywords:
-            queryset_list = queryset_list.filter(description__icontains = keywords)
+#     #keywords
+#     if 'keywords' in request.GET:
+#         keywords = request.GET['keywords']
+#         if keywords:
+#             queryset_list = queryset_list.filter(description__icontains = keywords)
         
-   #District
-    if 'district' in request.GET:
-        district = request.GET['district']
-        if district:
-            queryset_list=queryset_list.filter(district__iexact = district)
+#    #District
+#     if 'district' in request.GET:
+#         district = request.GET['district']
+#         if district:
+#             queryset_list=queryset_list.filter(district__iexact = district)
 
-     #sector
-    if 'sector' in request.GET:
-        sector = request.GET['sector']
-        if state:
-            queryset_list=queryset_list.filter(sector__iexact = sector)
+#      #sector
+#     if 'sector' in request.GET:
+#         sector = request.GET['sector']
+#         if state:
+#             queryset_list=queryset_list.filter(sector__iexact = sector)
     
                 
-    context={
-        'sector_choices':sector_choices,
-        'district_choices':district_choices,
-        'listings':queryset_list,
-        'values':request.GET,
-    }
+#     context={
+#         'sector_choices':sector_choices,
+#         'district_choices':district_choices,
+#         'listings':queryset_list,
+#         'values':request.GET,
+#     }
 
-    return render(request, 'listings/search.html', context)
+#     return render(request, 'listings/search.html', context)

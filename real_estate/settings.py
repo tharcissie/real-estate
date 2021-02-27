@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'django_filters',
     'widget_tweaks',
     'crispy_forms',
+    'listings',
+    'manager',
 
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

@@ -12,4 +12,4 @@ class ManagerAdmin(admin.ModelAdmin):
     list_per_page = 25
 
 
-admin.site.register(Realtor, ManagerAdmin)
+admin.site.register(Manager, ManagerAdmin)
