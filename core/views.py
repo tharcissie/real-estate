@@ -26,7 +26,7 @@ def signup(request):
 
 @login_required(login_url='login')
 def profile(request, username):
-    houses = request.user.profile.houses.all()
+    houses = request.user.profile.Houses.all()
     if request.method == 'POST':
         prof_form = UpdateUserProfileForm(request.POST, request.FILES, instance=request.user.profile)
         if prof_form.is_valid():
