@@ -34,7 +34,7 @@ class House( models.Model):
         ('Apartment','Apartment'),
     )
 
-    type    = models.CharField(max_length=800,choices=TYPE, default='house')
+    type    = models.CharField(max_length=800,choices=TYPE, default='House')
     description    = models.TextField(blank=True, null=True,)
     image      = models.ImageField(upload_to='contents',null=True)
     image1      = models.ImageField(upload_to='contents',null=True)
@@ -47,8 +47,8 @@ class House( models.Model):
     beds = models.PositiveIntegerField(default=0)
     baths = models.PositiveIntegerField(default=0)
     price = models.PositiveIntegerField(default=0)
-    action = models.CharField(max_length=10, choices=ACTION, default='renting')
-    owner = models.ForeignKey(Profile,on_delete=models.CASCADE, related_name='houses')
+    action = models.CharField(max_length=10, choices=ACTION, default='Renting')
+    owner = models.ForeignKey(Profile,on_delete=models.CASCADE, related_name='Houses')
 
     def __str__(self):
         return self.type
