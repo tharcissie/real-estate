@@ -26,6 +26,7 @@ def signup(request):
 
 @login_required(login_url='login')
 def profile(request, username):
+    houses = request.user.profile.houses.all()
     if request.method == 'POST':
         prof_form = UpdateUserProfileForm(request.POST, request.FILES, instance=request.user.profile)
         if prof_form.is_valid():
@@ -36,6 +37,7 @@ def profile(request, username):
 
     context = {
         'prof_form': prof_form,
+        'houses':houses,
          }
     return render(request, 'profile.html', context)
 

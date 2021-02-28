@@ -9,8 +9,17 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     profile = models.ImageField(upload_to='images/', default='a.png')
 
+
     def __str__(self):
-        return self.user.username
+         return self.user.username
+
+    @receiver(post_save, sender=User)
+    def save_user(sender, instance, created, **kwargs):
+        if created:
+            Profile.objects.create(user=instance)
+
+    def delete_user(self):
+        self.delete()
          
 
 class House( models.Model):
