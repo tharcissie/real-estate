@@ -8,22 +8,27 @@
       height: 30vh;
     }
   </style>
-<div class="container mt-5">
+<div class="container m-5">
     <h4 class="section-title">Houses</h4>
     <hr>
     <div class="row mb-2">
       <div class="col-md-9">
-        <div class="row justify-content-center">
+        <div class="row">
           {% if houses %}
           {% for pro in houses %}
-          <div class="card mr-2" style="width: 20rem;">
+          <div class="card m-2" style="width: 20rem;">
             <img class="card-img-top" src="{{pro.image.url}}" alt="Card image cap">
   
             <div class="card-body">
+              <p><b>{{pro.type}}</b></p>
               <h5>{{pro.price}}Rwf</h5>
-              <p class="card-text">Location:{{pro.district}},{{pro.sector}}, Type:{{pro.type}}, Rooms:{{pro.beds}},
-                Baths:{{pro.baths}}</p>
-                <a href="">For {{pro.action}}</a>
+              <hr>
+              <p class="card-text"><i class="fas fa-map-marker-alt"></i> {{pro.district}},{{pro.sector}}</p>
+              <div class="d-flex">
+              <p class="card-text mr-4"><i class="fas fa-bed"></i> {{pro.beds}} bedrooms</p>
+              <p class="card-text"><i class="fas fa-bath"></i> {{pro.baths}} baths</p>
+            </div>
+                <a class="btn btn-outline-info" href="">For {{pro.action}}</a>
             </div>
           </div>
           {% endfor %}

@@ -16,13 +16,13 @@ class Profile(models.Model):
 class House( models.Model):
 
     ACTION = (
-        ('renting','renting'),
-        ('selling','selling'),
+        ('Renting','Renting'),
+        ('Selling','Selling'),
     )
 
     TYPE = (
-        ('house','house'),
-        ('apartment','apartment'),
+        ('House','House'),
+        ('Apartment','Apartment'),
     )
 
     type    = models.CharField(max_length=800,choices=TYPE, default='house')
