@@ -6,22 +6,20 @@
     <div class="content-section">
         <div class="media">
             <div class="container">
-                <div class="card p-5" style="background-color: #FCEDF4;">
+                <div class="card mb-5 p-5" style="background-color: #b8ccce;">
                     <div class="row justify-content-center">
                         <div class="col-md-1"></div>
                         <div class="col-md-3">
-                            <img class="rounded-circle account-img" src="{{ user.profile.profile_picture.url }}"
+                            <img class="rounded-circle account-img" src="{{ user.profile.profile.url }}"
                                 width="100%">
                         </div>
                         <div class="col-md-6 mt-3">
                             <div class="media-body">
                                 <div class="account-heading">
                                     <p><b>Name:</b> {{ user.username }}</p>
-                                    <p><b></b> {{user.profile}}</p>
-                                    <p><b></b> {{user.profile}}</p>
-                                    <p><b></b> {{user.profile}}</p>
-                                    <p><b></b> {{user.profile}}</p>
-                                    <a class="btn btn-sm text-light mr-3" data-toggle="modal" style="background-color: #b6acb0;"
+                                    <p><b>Email:</b> {{ user.email }}</p>
+                                
+                                    <a class="btn btn-info btn-sm text-light mr-3" data-toggle="modal""
                                         data-target=".bd-example-modal-md "><strong>Update Profile</strong></a>
                                 </div>
                             </div>
@@ -37,7 +35,7 @@
                     <form action="" method="post" novalidate enctype="multipart/form-data" class="mr-4 mt-4 ml-4 mb-4">
                         {% csrf_token%}
                         {{ prof_form|crispy}}
-                        <button type="submit" class="btn text-light btn-sm" style="background-color: #b6aeb1;"> Update Profile</button>
+                        <button type="submit" class="btn btn-info text-light btn-sm"> Update Profile</button>
                         <button type="button" class="btn btn-outline-dark btn-sm" data-dismiss="modal">Close
                         </button>
                     </form>
