@@ -4,43 +4,44 @@
 {% load static %}
 {% block content %}
 <style>
-  .image {
-    max-width: 100%;
-    max-height: 100%;
-  }
+    .image {
+        max-width: 100%;
+        max-height: 100%;
+    }
 </style>
 <div class="container">
     <div class="row mb-5">
-        <div class="col-md-7" style="overflow: scroll; height: 50;">
-          <div class="row">
-            <div class="col-12 border">
-              <img class="image" src="{{house.image.url}}">
+        <div class="col-md-8" style="height:400px;
+        overflow:auto;">
+            <div class="row">
+                <div class="col-12 border">
+                    <img class="image" src="{{house.image.url}}">
+                </div>
+                <div class="col-md-6 border"><img class="image" src="{{house.image1.url}}"></div>
+                <div class="col-md-6 border "><img class="image" src="{{house.image2.url}}"></div>
+                <div class="col-md-6 border"><img class="image" src="{{house.image3.url}}"></div>
+                <div class="col-md-6 border "><img class="image" src="{{house.image4.url}}"></div>
             </div>
-            <div class="col-md-6 border"><img class="image" src="{{house.image1.url}}"></div>
-            <div class="col-md-6 border "><img class="image" src="{{house.image2.url}}"></div>
-            <div class="col-md-6 border"><img class="image" src="{{house.image3.url}}"></div>
-            <div class="col-md-6 border "><img class="image" src="{{house.image4.url}}"></div>
-          </div>
         </div>
         <div class="col-md-4">
-          <a class="navbar-brand ml-2" href="/"><img width=100px src="{% static 'lo.png' %}" alt=""></a>
-          <hr>
-          <p class="card-text"><i class="fas fa-map-marker-alt"></i> {{house.district}},{{house.sector}}</p>
-          <div class="d-flex">
-            <p class="card-text mr-4"><i class="fas fa-bed"></i> {{house.beds}} bedrooms</p>
-            <p class="card-text"><i class="fas fa-bath"></i> {{house.baths}} baths</p>
-          </div>
-          <div class="d-flex">
-            <p class="card-text mr-4">{{house.action}}</p>
-            <p class="card-text">for {{house.price}} Rwf</p>
-          </div>
-          <hr>
-          <h4>description</h4>
-          <p>{{house.description}}</p>
-          <hr>
-          <a  class="btn btn-outline-info btn-block" href="http://">Book a visit</a>
+            <a class="navbar-brand ml-2" href="/"><img width=100px src="{% static 'lo.png' %}" alt=""></a>
+            <hr>
+            <p class="card-text"><i class="fas fa-map-marker-alt"></i> {{house.district}},{{house.sector}}</p>
+            <div class="d-flex">
+                <p class="card-text mr-4"><i class="fas fa-bed"></i> {{house.beds}} bedrooms</p>
+                <p class="card-text"><i class="fas fa-bath"></i> {{house.baths}} baths</p>
+            </div>
+            <div class="d-flex">
+                <p class="card-text mr-4">{{house.action}}</p>
+                <p class="card-text">for {{house.price}} Rwf</p>
+            </div>
+            <hr>
+            <h4>description</h4>
+            <p>{{house.description}}</p>
+            <hr>
+            <a class="btn btn-outline-info btn-block" href="http://">Book a visit</a>
         </div>
-        
-      </div>
+
+    </div>
 </div>
-    {% endblock %}
+{% endblock %}
