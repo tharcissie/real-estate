@@ -57,7 +57,7 @@ def house_details(request, pk):
     context = {
         'house':house
     }
-    return render(request, 'house_details.html', context)
+    return render(request, 'house_detail.html', context)
 
 
 
