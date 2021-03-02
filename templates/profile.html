@@ -25,16 +25,13 @@
 
                                     <a class="btn btn-info btn-sm text-light mr-3" data-toggle="modal"
                                         data-target=".bd-example-modal-md "><strong>Update Profile</strong></a>
-                                    <a class="btn btn-outline-info btn-sm text-info mr-3" data-toggle="modal2"
-                                        data-target=".bd-example-modal-md "><strong>Bookings</strong></a>
+                                    <a class="btn btn-outline-info btn-sm text-info mr-3" data-toggle="modal"
+                                        data-target=".2"><strong>Bookings</strong></a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                {% for pro in bookings %}
-                <p>{{pro.name}}</p>
-                {% endfor %}
                 <hr>
                 {% if houses %}
                 <h4>My Properties</h4>
@@ -78,8 +75,48 @@
                 </div>
             </div>
         </div>
+        <div class="modal fade bd-example-modal-md 2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="myLargeModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        {% if bookings %}
+                        <table class="table table-sm table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Phone</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for pro in bookings %}
+                                <tr>
+                                    <th scope="row">{{pro.id}}</th>
+                                    <td>{{pro.name}}</td>
+                                    <td>{{pro.email}}</td>
+                                    <td>{{pro.phone}}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        {% else %}
+                        <p>No Booking yet</p>
+                        {% endif %}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
 
-
-{% endblock %}
+    {% endblock %}
