@@ -59,7 +59,7 @@ class House( models.Model):
     @classmethod
     def search_house(cls,search):
     	house = cls.objects.filter(type__icontains=search)
-    	return House
+    	return house
 
 class Booking(models.Model):
     name = models.CharField(max_length=50, null=False)

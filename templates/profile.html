@@ -5,6 +5,22 @@
     .card-img-top {
         height: 20vh;
     }
+    .cards:hover {
+    -webkit-transform: scale(1.15);
+    -moz-transform: scale(1.15);
+    -ms-transform: scale(1.15);
+    -o-transform: scale(1.15);
+    transform: scale(1.15);
+  }
+
+  .cards {
+    box-shadow: 10px 10px 8px #888888;
+    -webkit-transition: all .9s ease;
+    -moz-transition: all .9s ease;
+    -o-transition: all .9s ease;
+    -ms-transition: all .9s ease;
+    
+  }
 </style>
 
 <div class="container" style="margin-top:1%">
@@ -38,7 +54,7 @@
                 <hr>
                 <div class="row">
                     {% for pro in houses %}
-                    <div class="card m-2" style="width: 20rem;">
+                    <div class="card cards m-2" style="width: 20rem;">
                         <img class="card-img-top" src="{{pro.image.url}}" alt="Card image cap">
 
                         <div class="card-body">
@@ -51,7 +67,7 @@
                                 <p class="card-text mr-4"><i class="fas fa-bed"></i> {{pro.beds}} bedrooms</p>
                                 <p class="card-text"><i class="fas fa-bath"></i> {{pro.baths}} baths</p>
                             </div>
-                            <a class="btn btn-outline-info" href="">For {{pro.action}}</a>
+                            <p>For {{pro.action}}</p>
                         </div>
                     </div>
                     {% endfor %}
@@ -118,5 +134,5 @@
             </div>
         </div>
     </div>
-
+</div>
     {% endblock %}
