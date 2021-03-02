@@ -27,6 +27,7 @@ def signup(request):
 @login_required(login_url='login')
 def profile(request, username):
     houses = request.user.profile.Houses.all()
+    bookings = Booking.objects.filter(house__owner__user=request.user.id)
     if request.method == 'POST':
         prof_form = UpdateUserProfileForm(request.POST, request.FILES, instance=request.user.profile)
         if prof_form.is_valid():
@@ -38,6 +39,7 @@ def profile(request, username):
     context = {
         'prof_form': prof_form,
         'houses':houses,
+        'bookings':bookings
          }
     return render(request, 'profile.html', context)
 
@@ -54,8 +56,18 @@ def home(request):
 
 def house_details(request, pk):
     house = House.objects.get(pk = pk)
+    if request.method == 'POST':
+        form = BookingForm(request.POST or None, files=request.FILES)
+        if form.is_valid():
+            booking = form.save(commit=False)
+            booking.house = house
+            booking.save()
+            return redirect(request.path_info)
+    else:
+        form = BookingForm()
     context = {
-        'house':house
+        'house':house,
+        'form':form
     }
     return render(request, 'house_detail.html', context)
 

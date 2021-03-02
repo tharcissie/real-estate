@@ -59,4 +59,16 @@ class House( models.Model):
     @classmethod
     def search_house(cls,search):
     	house = cls.objects.filter(type__icontains=search)
-    	return house
+    	return House
+
+class Booking(models.Model):
+    name = models.CharField(max_length=50, null=False)
+    email = models.CharField(max_length=50, null=False)
+    phone = models.CharField(max_length=100, null=False)
+    booking_date   = models.DateTimeField(auto_now_add = True)
+    house = models.ForeignKey(House,on_delete=models.CASCADE, related_name='house')
+
+    def __str__(self):
+        return self.name
+
+
