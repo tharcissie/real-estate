@@ -22,7 +22,7 @@ def signup(request):
             return redirect('home')
     else:
         form = SignUpForm()
-    return render(request, 'signup.html', {'form': form})
+    return render(request, 'registration/signup.html', {'form': form})
 
 @login_required(login_url='login')
 def profile(request, username):
@@ -41,17 +41,19 @@ def profile(request, username):
         'houses':houses,
         'bookings':bookings
          }
-    return render(request, 'profile.html', context)
+    return render(request, 'core/profile.html', context)
 
 
 def home(request):
-    houses = House.objects.all()
-    house_filter = HouseFilter(request.GET, queryset = houses)
+    houses_r = House.objects.filter(action='Renting').order_by('-pk')[:3]
+    houses_s = House.objects.filter(action='Selling').order_by('-pk')[:3]
+    
     context = {
-        'filter':house_filter,
-        'houses':houses
+        
+        'houses_r':houses_r,
+        'houses_s':houses_s
     }
-    return render(request, 'home.html',context)
+    return render(request, 'core/home.html',context)
 
 
 def house_details(request, pk):
@@ -69,23 +71,27 @@ def house_details(request, pk):
         'house':house,
         'form':form
     }
-    return render(request, 'house_detail.html', context)
+    return render(request, 'core/house_detail.html', context)
 
 
 
 def house_rent(request):
-    houses = House.objects.filter(action='renting').order_by('-pk')
+    houses = House.objects.filter(action='Renting').order_by('-pk')
+    house_filter = HouseFilter(request.GET, queryset = houses)
     context={
-        'houses':houses
+        'houses':houses,
+        'filter':house_filter,
     }
-    return render(request, 'house-rent.html',context)
+    return render(request, 'core/house-rent.html',context)
 
 def house_sell(request):
     houses = House.objects.filter(action='selling').order_by('-pk')
+    house_filter = HouseFilter(request.GET, queryset = houses)
     context={
+        'filter':house_filter,
         'houses':houses
     }
-    return render(request, 'house_sell.html',context)
+    return render(request, 'core/house_sell.html',context)
 
 def search_house(request):
     if 'house' in request.GET and request.GET["house"]:
@@ -112,5 +118,5 @@ def new_house(request):
     context={
         'form':form
     }
-    return render(request, 'sell_form.html', context)
+    return render(request, 'core/sell_form.html', context)
 

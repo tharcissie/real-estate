@@ -5,13 +5,7 @@
     .card-img-top {
         height: 20vh;
     }
-    .cards:hover {
-    -webkit-transform: scale(1.15);
-    -moz-transform: scale(1.15);
-    -ms-transform: scale(1.15);
-    -o-transform: scale(1.15);
-    transform: scale(1.15);
-  }
+
 
   .cards {
     box-shadow: 10px 10px 8px #888888;
@@ -41,7 +35,7 @@
 
                                     <a class="btn btn-info btn-sm text-light mr-3" data-toggle="modal"
                                         data-target=".bd-example-modal-md "><strong>Update Profile</strong></a>
-                                    <a class="btn btn-outline-info btn-sm text-info mr-3" data-toggle="modal"
+                                    <a class="btn btn-outline-warning btn-sm text-info mr-3" data-toggle="modal"
                                         data-target=".2"><strong>Bookings</strong></a>
                                 </div>
                             </div>
@@ -67,7 +61,8 @@
                                 <p class="card-text mr-4"><i class="fas fa-bed"></i> {{pro.beds}} bedrooms</p>
                                 <p class="card-text"><i class="fas fa-bath"></i> {{pro.baths}} baths</p>
                             </div>
-                            <p>For {{pro.action}}</p>
+                            <p>For {{pro.action}}</p> 
+                            <p>ID: {{pro.id}}</p>
                         </div>
                     </div>
                     {% endfor %}
@@ -96,7 +91,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="myLargeModalLabel">Modal title</h5>
+                        <h5 class="modal-title" id="myLargeModalLabel">Bookings</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -106,19 +101,19 @@
                         <table class="table table-sm table-striped">
                             <thead>
                                 <tr>
-                                    <th scope="col">#</th>
                                     <th scope="col">Name</th>
                                     <th scope="col">Email</th>
                                     <th scope="col">Phone</th>
+                                    <th scope="col">House Id</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {% for pro in bookings %}
                                 <tr>
-                                    <th scope="row">{{pro.id}}</th>
                                     <td>{{pro.name}}</td>
                                     <td>{{pro.email}}</td>
                                     <td>{{pro.phone}}</td>
+                                    <td>{{pro.house.id}}</td>
                                 </tr>
                                 {% endfor %}
                             </tbody>

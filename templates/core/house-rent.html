@@ -11,13 +11,7 @@
     .card{
         box-shadow:10px 10px 8px #888888;
     }
-    .card:hover {
-    -webkit-transform: scale(1.15);
-    -moz-transform: scale(1.15);
-    -ms-transform: scale(1.15);
-    -o-transform: scale(1.15);
-    transform: scale(1.15);
-  }
+
 
   .card {
     box-shadow: 10px 10px 8px #888888;
@@ -28,15 +22,41 @@
     
   }
   </style>
+  <form method="get">
+    {% csrf_token %}
+    <div class="container mx-auto mt-5 mb-5">
+      <div class="row justify-content-center">
+        <div class="form-group col-md-1 mb-0">
+          {{ filter.form.district|as_crispy_field }}
+        </div>
+        <div class="form-group col-md-1 mb-0">
+          {{ filter.form.sector|as_crispy_field }}
+        </div>
+        <div class="form-group col-md-1 mb-0">
+          {{ filter.form.type|as_crispy_field }}
+        </div>
+        <div class="form-group col-md-1 mb-0">
+          {{ filter.form.beds|as_crispy_field }}
+        </div>
+        <div class="form-group col-md-1 mb-0">
+          {{ filter.form.baths|as_crispy_field }}
+        </div>
+        <div class="form-group col-md-1 mb-0">
+          <button type="submit" class="btn  btn-warning" style="margin-top: 0.85cm;">Search</button>
+        </div>
+      </div>
+  </form>
+  </div>
+  
 <div class="container m-5">
-    <h4 class="section-title">Houses</h4>
+    <h4 class="section-title">Houses for renting</h4>
     <hr>
     <div class="row mb-2">
-      <div class="col-md-9">
-        <div class="row">
+      <div class="col-md-12">
+        <div class="row justify-content-center">
           {% if houses %}
-          {% for pro in houses %}
-          <div class="card m-2" style="width: 20rem;">
+          {% for pro in filter.qs %}
+          <div class="card m-2" style="width: 16rem;">
             <img class="card-img-top" src="{{pro.image.url}}" alt="Card image cap">
   
             <div class="card-body">

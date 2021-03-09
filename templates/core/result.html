@@ -5,18 +5,12 @@
 {% block content %}
 <style>
     .card-img-top {
-      height: 20vh;
+      height: 30vh;
     }
     .card{
         box-shadow:10px 10px 8px #888888;
     }
-    .card:hover {
-    -webkit-transform: scale(1.15);
-    -moz-transform: scale(1.15);
-    -ms-transform: scale(1.15);
-    -o-transform: scale(1.15);
-    transform: scale(1.15);
-  }
+
 
   .card {
     box-shadow: 10px 10px 8px #888888;
@@ -27,14 +21,16 @@
     
   }
   </style>
-<div class="container m-5">
+  
+ 
+<div class="container mt-5">
     <h4 class="section-title">Houses</h4>
     <hr>
     <div class="row mb-2">
       <div class="col-md-9">
         <div class="row">
-          {% if houses %}
-          {% for pro in houses %}
+          {% if house %}
+          {% for pro in house %}
           <div class="card m-2" style="width: 20rem;">
             <img class="card-img-top" src="{{pro.image.url}}" alt="Card image cap">
   
@@ -58,6 +54,7 @@
   
         </div>
       </div>
+  
     </div>
-    </div>
+</div>
 {% endblock %}
