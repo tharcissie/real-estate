@@ -15,11 +15,21 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
   <title>Login</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/blog/">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader&family=Roboto+Slab&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
+
 </head>
 <header>
     {% include 'navbar.html' %}
   </header>
-<body style="background-image:linear-gradient(rgba(26, 114, 126, 0.9), rgba(85, 87, 87, 0.8)), url('https://cdn.aarp.net/content/dam/aarp/home-and-family/your-home/2018/06/1140-house-inheriting.imgcache.rev68c065601779c5d76b913cf9ec3a977e.jpg'); background-repeat: no-repeat; background-size: cover">
+<body style="font-family: 'Newsreader', serif;background-image:linear-gradient(rgba(26, 114, 126, 0.9), rgba(85, 87, 87, 0.8)), url('https://cdn.aarp.net/content/dam/aarp/home-and-family/your-home/2018/06/1140-house-inheriting.imgcache.rev68c065601779c5d76b913cf9ec3a977e.jpg'); background-repeat: no-repeat; background-size: cover">
   <div class="container mb-5 mt-5">
     <div class="row mb-5 justify-content-center">
       <div class="col-md-6 mb-5">
@@ -28,7 +38,7 @@
           <hr>
           <form method="post">
             {% csrf_token %}
-            {% include 'form.html' %}
+            {% include 'core/form.html' %}
             <hr>
             <button class="btn btn-warning" type="submit">Login</button>
           </form>
