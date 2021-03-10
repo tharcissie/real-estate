@@ -85,7 +85,7 @@ def house_rent(request):
     return render(request, 'core/house-rent.html',context)
 
 def house_sell(request):
-    houses = House.objects.filter(action='selling').order_by('-pk')
+    houses = House.objects.filter(action='Selling').order_by('-pk')
     house_filter = HouseFilter(request.GET, queryset = houses)
     context={
         'filter':house_filter,

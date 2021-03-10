@@ -17,7 +17,7 @@
                 <div class="col-12 border">
                     <img class="image" width="100%" height="300vh" src="{{house.image.url}}">
                 </div>
-                <div class="col-md-6 border"><img class="image"  src="{{house.image1.url}}"></div>
+                <div class="col-md-6 border"><img class="image" src="{{house.image1.url}}"></div>
                 <div class="col-md-6 border "><img class="image" src="{{house.image2.url}}"></div>
                 <div class="col-md-6 border"><img class="image" src="{{house.image3.url}}"></div>
                 <div class="col-md-6 border "><img class="image" src="{{house.image4.url}}"></div>
@@ -39,24 +39,29 @@
             <h4>description</h4>
             <p>{{house.description}}</p>
             <hr>
-            <a class="btn btn-outline-info btn-block" data-toggle="modal"
-            data-target=".bd-example-modal-md " href="http://">Book a visit</a>
+            <a class="btn btn-outline-info btn-block" data-toggle="modal" data-target=".bd-example-modal-md "
+                href="http://">Book a visit</a>
         </div>
 
     </div>
+
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d63798.17670728615!2d30.20533654707334!3d-2.0006868457818463!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x19db576953bbecef%3A0xb3abe53cabfaa80!2sGako%2C%20Kabuga!3m2!1d-2.0025458!2d30.2224227!5e0!3m2!1sen!2srw!4v1615399875672!5m2!1sen!2srw"
+        width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
 </div>
 <div class="modal fade bd-example-modal-md" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-aria-hidden="true">
-<div class="modal-dialog modal-md ">
-    <div class="modal-content">
-        <form action="" method="post" novalidate enctype="multipart/form-data" class="mr-4 mt-4 ml-4 mb-4">
-            {% csrf_token%}
-            {{ form|crispy}}
-            <button type="submit" class="btn text-light btn-info btn-sm"> Send</button>
-            <button type="button" class="btn btn-outline-dark btn-sm" data-dismiss="modal">Close
-            </button>
-        </form>
+    aria-hidden="true">
+    <div class="modal-dialog modal-md ">
+        <div class="modal-content">
+            <form action="" method="post" novalidate enctype="multipart/form-data" class="mr-4 mt-4 ml-4 mb-4">
+                {% csrf_token%}
+                {{ form|crispy}}
+                <button type="submit" class="btn text-light btn-info btn-sm"> Send</button>
+                <button type="button" class="btn btn-outline-dark btn-sm" data-dismiss="modal">Close
+                </button>
+            </form>
+        </div>
     </div>
-</div>
 </div>
 {% endblock %}

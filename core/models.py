@@ -43,6 +43,7 @@ class House( models.Model):
     image4     = models.ImageField(upload_to='contents',null=True)
     district    = models.CharField(max_length=800)
     sector    = models.CharField(max_length=800)
+    map    = models.CharField(max_length=800, default='')
     published_date = models.DateField(auto_now_add=True)
     beds = models.PositiveIntegerField(default=0)
     baths = models.PositiveIntegerField(default=0)
