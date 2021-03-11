@@ -3,62 +3,74 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div  style="background-image:linear-gradient(rgba(26, 114, 126, 0.9), rgba(85, 87, 87, 0.8)), url('https://content.fortune.com/wp-content/uploads/2019/06/lan07.19-landlord-houses-featured.jpg'); background-repeat: no-repeat; background-size: cover; ">
-<div class="container " >
-  <div class="row justify-content-center">
-    <div class="col-md-10">
-     
-      <hr>
-      <div class="card mb-5 p-4">
+
+<div class="container mb-5 " >
+  <h5 class="mt-3 m-5">PUBLISH YOUR PROPRIETY</h5>
+  <hr>
       <form method="post" enctype='multipart/form-data' novalidate>
-        <h2 class="mt-3 text-center mb-5">Post a House</h2>
+        
         {% csrf_token %}
-        <div class="row justify-content-center">
-          <div class="form-group col-md-4 mb-0">
+        <h6><b>Location</b></h6>
+          <hr>
+        <div class="row ">
+          
+          <div class="form-group col-md-3 mb-0">
             {{ form.type|as_crispy_field }}
           </div>
-          <div class="form-group col-md-4 mb-0">
+          <div class="form-group col-md-3 mb-0">
             {{ form.district|as_crispy_field }}
           </div>
-          <div class="form-group col-md-4 mb-0">
+          <div class="form-group col-md-3 mb-0">
             {{ form.sector|as_crispy_field }}
           </div>
-          <div class="form-group col-md-6 mb-0">
-            {{ form.beds|as_crispy_field }}
-          </div>
-          <div class="form-group col-md-6 mb-0">
-            {{ form.baths|as_crispy_field }}
-          </div>
-          <div class="form-group col-md-6 mb-0">
-            {{ form.image|as_crispy_field }}
-          </div>
-          <div class="form-group col-md-6 mb-0">
-            {{ form.image1|as_crispy_field }}
-          </div>
-          <div class="form-group col-md-6 mb-0">
-            {{ form.image2|as_crispy_field }}
-          </div>
-          <div class="form-group col-md-6 mb-0">
-            {{ form.image3|as_crispy_field }}
-          </div>
-          <div class="form-group col-md-12 mb-0">
-            {{ form.image4|as_crispy_field }}
-          </div>
-          <div class="form-group col-md-6 mb-0">
+          <div class="form-group col-md-3 mb-0">
             {{ form.action|as_crispy_field }}
           </div>
-          <div class="form-group col-md-6 mb-0">
+        </div>
+        <br>
+        <h6><b>Images</b></h6>
+          <hr>
+        <div class="row">
+          <div class="form-group col-md-3 mb-0">
+            {{ form.image|as_crispy_field }}
+          </div>
+          <div class="form-group col-md-3 mb-0">
+            {{ form.image1|as_crispy_field }}
+          </div>
+          <div class="form-group col-md-3 mb-0">
+            {{ form.image2|as_crispy_field }}
+          </div>
+          <div class="form-group col-md-3 mb-0">
+            {{ form.image3|as_crispy_field }}
+          </div>
+          <div class="form-group col-md-3 mb-0">
+            {{ form.image4|as_crispy_field }}
+          </div>
+        </div>
+        <br>
+        <h6><b>Description</b></h6>
+        <hr>
+        <div class="row">
+          <div class="form-group col-md-4 mb-0">
+            {{ form.beds|as_crispy_field }}
+          </div>
+          <div class="form-group col-md-4 mb-0">
+            {{ form.baths|as_crispy_field }}
+          </div>
+
+          <div class="form-group col-md-4 mb-0">
             {{ form.price|as_crispy_field }}
           </div>
+         
+
           <div class="form-group col-md-12 mb-0">
             {{ form.description|as_crispy_field }}
           </div>
+          
+         
           </div>
-        <button type="submit" class="btn btn-info">Post</button>
+        <button type="submit" class="btn btn-lg btn-info">Publish</button>
       </form>
     </div>
-    </div>
-  </div>
-</div>
-</div>
+
 {% endblock %}
