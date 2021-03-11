@@ -43,13 +43,15 @@ class House( models.Model):
     image4     = models.ImageField(upload_to='contents',null=True)
     district    = models.CharField(max_length=800)
     sector    = models.CharField(max_length=800)
-    map    = models.CharField(max_length=800, default='')
+    map    = models.CharField(max_length=800, default='https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d63798.17670728615!2d30.20533654707334!3d-2.0006868457818463!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x19db576953bbecef%3A0xb3abe53cabfaa80!2sGako%2C%20Kabuga!3m2!1d-2.0025458!2d30.2224227!5e0!3m2!1sen!2srw!4v1615399875672!5m2!1sen!2srw')
     published_date = models.DateField(auto_now_add=True)
     beds = models.PositiveIntegerField(default=0)
     baths = models.PositiveIntegerField(default=0)
     price = models.PositiveIntegerField(default=0)
     action = models.CharField(max_length=10, choices=ACTION, default='Renting')
     owner = models.ForeignKey(Profile,on_delete=models.CASCADE, related_name='Houses')
+
+    
 
     def __str__(self):
         return self.type
