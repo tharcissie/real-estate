@@ -99,10 +99,11 @@ def search_house(request):
         house = House.search_house(search)
         message = f"{search}"
         context = {"house":house, 'search':search}
-        return render(request, 'result.html',context)
+        return render(request, 'core/result.html',context)
     else:
         message = "You haven't searched for any term"
         return render(request, 'core/result.html',{"message":message})
+
 
 @login_required(login_url='login')
 def new_house(request):
