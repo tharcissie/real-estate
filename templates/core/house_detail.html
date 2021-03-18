@@ -14,13 +14,13 @@
         <div class="col-md-8" style="height:400px;
         overflow:auto;">
             <div class="row">
-                <div class="col-12 border">
-                    <img class="image" width="100%" height="300vh" src="{{house.image.url}}">
+                <div class="col-12 border"  data-toggle="modal" data-target=".1" >
+                    <img class="image"  width="100%" height="300vh" src="{{house.image.url}}">
                 </div>
-                <div class="col-md-6 border"><img class="image" src="{{house.image1.url}}"></div>
-                <div class="col-md-6 border "><img class="image" src="{{house.image2.url}}"></div>
-                <div class="col-md-6 border"><img class="image" src="{{house.image3.url}}"></div>
-                <div class="col-md-6 border "><img class="image" src="{{house.image4.url}}"></div>
+                <div data-toggle="modal" data-target=".2" class="col-md-6 border"><img class="image" src="{{house.image1.url}}"></div>
+                <div data-toggle="modal" data-target=".3" class="col-md-6 border "><img class="image" src="{{house.image2.url}}"></div>
+                <div data-toggle="modal" data-target=".4" class="col-md-6 border"><img class="image" src="{{house.image3.url}}"></div>
+                <div data-toggle="modal" data-target=".5" class="col-md-6 border "><img class="image" src="{{house.image4.url}}"></div>
             </div>
         </div>
         <div class="col-md-4">
@@ -64,4 +64,50 @@
         </div>
     </div>
 </div>
+<!-- Modal -->
+<div class="modal fade bd-example-modal-lg 1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <button type="button" class="btn btn-outline-dark btn-sm" data-dismiss="modal">Close
+        </button>
+        <img class="image"  width="100%" height="550vh" src="{{house.image.url}}">
+      </div>
+    </div>
+  </div>
+  <div class="modal fade bd-example-modal-lg 2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <button type="button" class="btn btn-outline-dark btn-sm" data-dismiss="modal">Close
+        </button>
+        <img class="image"  width="100%" height="550vh" src="{{house.image1.url}}">
+      </div>
+    </div>
+  </div>
+  <div class="modal fade bd-example-modal-lg 3" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <button type="button" class="btn btn-outline-dark btn-sm" data-dismiss="modal">Close
+        </button>
+        <img class="image"  width="100%" height="550vh" src="{{house.image2.url}}">
+      </div>
+    </div>
+  </div>
+  <div class="modal fade bd-example-modal-lg 4" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <button type="button" class="btn btn-outline-dark btn-sm" data-dismiss="modal">Close
+        </button>
+        <img class="image"  width="100%" height="550vh" src="{{house.image3.url}}">
+      </div>
+    </div>
+  </div>
+  <div class="modal fade bd-example-modal-lg 5" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <button type="button" class="btn btn-outline-dark btn-sm" data-dismiss="modal">Close
+        </button>
+        <img class="image"  width="100%" height="550vh" src="{{house.image4.url}}">
+      </div>
+    </div>
+  </div>
 {% endblock %}
